@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - NovaMart</title>
+    <style>
+        /* Import Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #b01818;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            height: 100px;
+        }
+
+        nav {
+            background-color: #192531;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            text-transform: uppercase;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            color: #b01818;
+            background-color: white;
+        }
+
+        .search-bar {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar input {
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            font-size: 16px;
+            outline: none;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .search-bar input:focus {
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .search-bar button {
+            position: absolute;
+            right: 5px;
+            background: none;
+            border: none;
+            color: #192531;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-bar button:hover {
+            color: #b01818;
+        }
+
+        main {
+            padding: 20px;
+            background-color: #ffffff;
+            margin: 20px auto;
+            max-width: 1200px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            flex-grow: 1;
+        }
+
+        h2 {
+            color: #b01818;
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .cart {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-item img {
+            max-width: 80px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .cart-item-details {
+            flex: 1;
+            margin-left: 15px;
+        }
+
+        .cart-item h3 {
+            font-size: 20px;
+            margin: 0 0 10px;
+            color: #192531;
+        }
+
+        .cart-item p {
+            margin: 0;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .cart-item button {
+            background-color: #b01818;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .cart-item button:hover {
+            background-color: #192531;
+        }
+
+        .cart-summary {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #f9f9f9;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-summary h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #192531;
+        }
+
+        .cart-summary p {
+            font-size: 18px;
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .cart-summary button {
+            background-color: #192531;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .cart-summary button:hover {
+            background-color: #b01818;
+        }
+
+        footer {
+            background-color: #192531;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            font-size: 14px;
+            position: relative;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        /* Media Query for tablets (max-width: 768px) */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 15px;
+                align-items: center;
+            }
+
+            .search-bar input {
+                width: 100%;
+                font-size: 14px;
+                padding: 8px 12px;
+            }
+
+            footer {
+                padding: 15px;
+            }
+
+            footer p {
+                font-size: 12px;
+            }
+
+            .cart-item {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 10px;
+            }
+
+            .cart-summary {
+                padding: 15px;
+            }
+
+            .cart-summary button {
+                padding: 12px 15px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+        }
+
+        /* Media Query for mobile devices (max-width: 480px) */
+        @media (max-width: 480px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .search-bar input {
+                font-size: 12px;
+                padding: 8px 10px;
+            }
+
+            footer {
+                padding: 10px;
+            }
+
+            footer p {
+                font-size: 10px;
+            }
+
+            .cart-item {
+                padding: 8px;
+                width: 100%;
+            }
+
+            .cart-summary {
+                padding: 10px;
+            }
+
+            .cart-summary button {
+                padding: 10px 12px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+        }
+
+        main {
+            flex-grow: 1; /* Allows main content to expand, pushing footer down */
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>NovaMart</h1>
+        <p>Your Cart</p>
+    </header>
+
+    <nav>
+        <div class="nav-links">
+            <a href="mywebsite.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="cart.html">Cart</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search products...">
+            <button>&#x1F50D;</button> <!-- Magnifying glass icon -->
+        </div>
+    </nav>
+
+    <main>
+        <h2>Your Shopping Cart</h2>
+        <div class="cart">
+            <div class="cart-item">
+                <img src="https://www.sportswing.in/wp-content/uploads/2022/06/Dunlop-NITRO-JNR-23-Tennis-Racquet-3.jpg" alt=" Tennis Racket">
+                <div class="cart-item-details">
+                    <h3>Tennis Racket</h3>
+                    <p>Price: ₹10.00</p>
+                    <p>Quantity: 2</p>
+                </div>
+                <button>Remove</button>
+            </div>
+
+            <div class="cart-item">
+                <img src="https://shop.teamsg.in/cdn/shop/files/1.png?v=1722329868&width=1445" alt="Bat">
+                <div class="cart-item-details">
+                    <h3>Bat</h3>
+                    <p>Price: ₹20.00</p>
+                    <p>Quantity: 1</p>
+                </div>
+                <button>Remove</button>
+            </div>
+        </div>
+
+        <div class="cart-summary">
+            <h3>Order Summary</h3>
+            <p>Subtotal: ₹40.00</p>
+            <p>Tax: ₹4.00</p>
+            <p>Total: ₹44.00</p>
+            <button>Proceed to Checkout</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 My E-Commerce Store. All rights reserved.</p>
+        <p>Contact us: support@myecommercestore.com | +91-123-456-7890</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        /* Import Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure the body takes at least the full height of the viewport */
+        }
+
+        nav {
+            background-color: #192531;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+            font-size: 18px;
+            text-transform: uppercase;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #b01818;
+            background-color: white;
+        }
+
+        main {
+            padding: 30px;
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            flex-grow: 1; /* Main content takes the remaining space */
+        }
+
+        h1, h2 {
+            color: #b01818;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            font-size: 16px;
+            color: #555;
+            margin: 10px 0;
+        }
+
+        header {
+            background-color: #b01818;
+            color: #f9f9f9;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            background-color: #192531;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            width: 100%; /* Ensure it fits the screen */
+            box-sizing: border-box; /* Include padding in width calculation */
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        /* Media Query for tablets (max-width: 768px) */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+                padding: 10px;
+            }
+
+            nav a {
+                margin: 5px 0;
+                font-size: 16px;
+            }
+
+            main {
+                padding: 20px;
+                max-width: 100%;
+                margin: 10px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+
+            ul li {
+                font-size: 14px;
+            }
+
+            footer {
+                padding: 12px;
+            }
+
+            footer p {
+                font-size: 12px;
+            }
+        }
+
+        /* Media Query for mobile devices (max-width: 480px) */
+        @media (max-width: 480px) {
+            footer {
+                padding: 10px;
+            }
+
+            footer p {
+                font-size: 10px;
+            }
+
+            header h1 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="color:white">About NovaMart</h1>
+    </header>
+    <nav>
+        <a href="mywebsite.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="cart.html">Cart</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <main>
+        <h2>Who We Are</h2>
+        <p>Welcome to <strong>NovaMart</strong>! We are dedicated to providing you with the best quality products at affordable prices. Our mission is to ensure customer satisfaction through a seamless shopping experience and excellent customer service.</p>
+        <h2>Our Vision</h2>
+        <p>We aim to become a leading online store known for reliability, quality, and innovation. Our vision is to create a platform where customers can find everything they need in one place.</p>
+
+        <h2>Contact Us</h2>
+        <p>If you have any questions or feedback, feel free to reach out to us at:</p>
+        <ul>
+            <li><strong>Email:</strong> support@novamart.com</li>
+            <li><strong>Phone:</strong> +91-123-456-7890</li>
+            <li><strong>Address:</strong> 123, Market Street, Your City, Your Country</li>
+        </ul>
+    </main>
+    <footer >
+        <p  style="color: white;">&copy; 2025 NovaMart. All rights reserved.</p>
+        <p style="color: white;">Contact us: support@novamart.com | +91-123-456-7890</p>
+    </footer>
+</body>
+</html>
